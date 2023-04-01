@@ -4,9 +4,7 @@ let btnMedium = document.querySelector('#btnMedium');
 let btnHard = document.querySelector('#btnHard');
 
 // creo il div grid
-let grid = document.createElement('div');
-grid.id = 'grid';
-grid.classList.add('d-flex', 'flex-wrap',);
+let grid = myElementFunction('div', 'grid', 'd-flex flex-wrap');
 main.append(grid);
 
 
@@ -39,6 +37,17 @@ function randomNumber(min, max) {
 function shuffleFunction(array) {
     return array.sort(() => Math.random() - 0.5);
 };
+
+
+// -- Funzione per creare elementi html e assegnare loro id e classe
+function myElementFunction(tagHtml, idElemento, classiElemento) {
+    nomeElemento = document.createElement(tagHtml);
+    nomeElemento.id = idElemento;
+    nomeElemento.className = classiElemento;
+    
+    return nomeElemento;
+};
+
 
 // -- Funzione per creare le griglie
 // Il parametro difficulty corrisponde alla stringa 'easy','medium' o 'hard', serve ad associare la classe e le corrispondenti caratteristiche css
@@ -73,9 +82,10 @@ function createGrid(numberBoxes, difficulty) {
 
     };
 
-    let gridinfo = document.createElement('div');
-    gridinfo.id = 'gridinfo';
-    gridinfo.classList.add('d-flex','flex-wrap','mt-4','row');
+    // let gridinfo = document.createElement('div');
+    // gridinfo.id = 'gridInfo';
+    // gridinfo.classList.add('d-flex','flex-wrap','mt-4','row');
+    let gridinfo = myElementFunction('div', 'gridInfo', 'd-flex flex-wrap mt-4 row');
     gridinfo.innerHTML = `<h2 class="text-center">Numeri cliccati:</h2>`;
     main.append(gridinfo);
 
@@ -91,6 +101,8 @@ function createGrid(numberBoxes, difficulty) {
         });
     };
 }
+
+
 
 // necessario per inizializzare i tooltip Bootstrap
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
