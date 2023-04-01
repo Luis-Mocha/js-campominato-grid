@@ -87,11 +87,11 @@ function createGrid(numberBoxes, difficulty) {
 
             let info = document.createElement('div');
             main.append(info);
-            gridinfo.innerHTML += `<span class="mx-2 my-1 col-1 border text-center">${this.innerHTML}</span>`;
+            gridinfo.innerHTML += `<span class="mx-2 my-1 col-1 text-center">${this.innerHTML}</span>`;
         });
     };
 }
 
-
+// necessario per inizializzare i tooltip Bootstrap
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
