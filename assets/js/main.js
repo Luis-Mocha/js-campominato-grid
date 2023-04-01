@@ -69,7 +69,7 @@ function createGrid(numberBoxes, difficulty) {
         numbersList.push(i + 1);
     }
     let boxArray = document.querySelectorAll('.box');
-    console.log(boxArray);
+    // console.log(boxArray);
     console.log(numbersList)
 
     // creo una lista di numeri da 1 a x ordinati casualmente, e li inserisco nei box 
@@ -82,9 +82,6 @@ function createGrid(numberBoxes, difficulty) {
 
     };
 
-    // let gridinfo = document.createElement('div');
-    // gridinfo.id = 'gridInfo';
-    // gridinfo.classList.add('d-flex','flex-wrap','mt-4','row');
     let gridinfo = myElementFunction('div', 'gridInfo', 'd-flex flex-wrap mt-4 row');
     gridinfo.innerHTML = `<h2 class="text-center">Numeri cliccati:</h2>`;
     main.append(gridinfo);
