@@ -14,10 +14,27 @@
 <body>
     <main class="container my-3">
         <h1 class="text-uppercase text-center">
-            Griglia
+            Campo Minato
         </h1>
 
-        <div id="btnDiv" class="d-flex justify-content-evenly mt-5">
+        <form>
+            <div id="playDiv">
+                <label for="difficultyInput" >
+                    Scegli la tua difficoltà: 
+                </label>
+                <select name="difficultyInput" id="difficultyInput" class="ms-2 mx-auto">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+    
+                <button class="text-uppercase my-3 d-block mx-auto">
+                    play
+                </button>
+            </div>
+            
+        </form>
+        <!-- <div id="btnDiv" class="d-flex justify-content-evenly mt-5">
             <button id="btnEasy" class="text-uppercase btn btn-success" data-bs-toggle="tooltip" data-bs-title="Griglia: 10x10">
                 easy
             </button>
@@ -27,11 +44,11 @@
             <button id="btnHard" class="text-uppercase btn btn-danger" data-bs-toggle="tooltip" data-bs-title="Griglia: 7x7">
                 hard
             </button>
-        </div>
+        </div> -->
 
-        <div class="text-center mt-1 mb-4 fst-italic fw-light">
-            (To change difficulty, please reload the page)
-        </div>
+        <!-- <div class="text-center mb-4 fst-italic fw-light">
+            (changing difficulty will cause you to lose all progress)
+        </div> -->
         
     </main>
 
