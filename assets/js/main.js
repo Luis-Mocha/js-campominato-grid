@@ -1,14 +1,12 @@
 let main = document.querySelector('main');
-// let btnEasy = document.querySelector('#btnEasy');
-// let btnMedium = document.querySelector('#btnMedium');
-// let btnHard = document.querySelector('#btnHard');
+let playDiv = document.querySelector('#playDiv');
 let form = document.querySelector('form');
-let playDiv = document.querySelector('#playDiv'); 
-
+ 
+// creo il change dfiiculty button
 let changeDiffBtn = myElementFunction('button', 'changeDiffBtn', 'text-uppercase my-3 d-block mx-auto');
 changeDiffBtn.innerHTML = 'Change DIfficulty';
 
-
+// Clicco Play
 form.addEventListener('submit', function(invioForm) {
     invioForm.preventDefault();
 
@@ -40,33 +38,10 @@ form.addEventListener('submit', function(invioForm) {
 
 // Tasto per refreshare e cambiare difficoltà
 changeDiffBtn.addEventListener('click', function() {
-    alert('Changing difficulty will cause you to lose all progress')
+    alert(`Changing difficulty will cause you to lose all progress.
+    Well anyway it's too late now.`)
     location.reload()
 })
-
-
-
-
-
-/*
-// --- GRIGLIA EASY ---
-btnEasy.addEventListener('click', function () {
-    createGrid(100, 'easy');
-});
-
-
-
-// --- GRIGLIA MEDIUM ---
-btnMedium.addEventListener('click', function () {
-    createGrid(81, 'medium');
-});
-
-
-// --- GRIGLIA HARD ---
-btnHard.addEventListener('click', function() {
-    createGrid(49, 'hard');
-});
-*/
 
 
 
@@ -92,7 +67,7 @@ function myElementFunction(tagHtml, idElemento, classiElemento) {
 
 
 // -- Funzione per creare le griglie
-// Il parametro difficulty corrisponde alla stringa 'easy','medium' o 'hard', serve ad associare la classe e le corrispondenti caratteristiche css
+// il parametro difficulty corrisponde alla stringa 'easy','medium' o 'hard', serve ad associare la classe e le corrispondenti caratteristiche css.
 
 function createGrid(numberBoxes, difficulty) {
     // Ciclo per creare x caselle e un array con x numeri
@@ -121,23 +96,13 @@ function createGrid(numberBoxes, difficulty) {
     for (let i = 0; i < randomNumbersList.length; i++) {
 
         boxArray[i].innerHTML = `${randomNumbersList[i]}`;
-
     };
-
-    // creo un div dove inserire le informazioni dei numeri cliccati
-    let gridinfo = myElementFunction('div', 'gridInfo', 'd-flex flex-wrap mt-4 row');
-    gridinfo.innerHTML = `<h2 class="text-center">Numeri cliccati:</h2>`;
-    main.append(gridinfo);
 
     // Cambio stile e informazione numero al click
     for (let i = 0; i <= boxArray.length; i++) {
         boxArray[i].addEventListener('click', function() {
             this.classList.toggle('box-clicked')
             console.log(this.innerHTML)
-
-            let info = document.createElement('div');
-            main.append(info);
-            gridinfo.innerHTML += `<span class="mx-2 my-1 col-1 text-center">${this.innerHTML}</span>`;
         });
     };
 }
