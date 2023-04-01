@@ -15,6 +15,7 @@ main {
 
 .box {
     background-color: rgb(192,192,192);
+    color: transparent;
     aspect-ratio: 1;
     border: 4px inset black;
     cursor: pointer;

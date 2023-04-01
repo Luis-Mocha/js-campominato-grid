@@ -95,16 +95,44 @@ function createGrid(numberBoxes, difficulty) {
 
     for (let i = 0; i < randomNumbersList.length; i++) {
 
-        boxArray[i].innerHTML = `${randomNumbersList[i]}`;
+        // togliere questo "if" per vedere solo i numeri e non assegnare nessuna x
+        if (randomNumbersList[i] >= randomNumbersList.length - 9) {
+            boxArray[i].classList.add('bomb');
+            boxArray[i].innerHTML = `<i class="fa-solid fa-land-mine-on fa-bounce"></i>`;
+        } else {
+            boxArray[i].innerHTML = `${randomNumbersList[i]}`;
+        }
+        
     };
 
     // Cambio stile e informazione numero al click
-    for (let i = 0; i <= boxArray.length; i++) {
-        boxArray[i].addEventListener('click', function() {
-            this.classList.toggle('box-clicked')
-            console.log(this.innerHTML)
+    // for (let i = 0; i <= boxArray.length; i++) {
+    //     boxArray[i].addEventListener('click', function() {
+    //         this.classList.toggle('box-clicked')
+    //         console.log(this.innerHTML)
+    //     })
+    // };
+    
+
+    // aggiungi un event listener per l'evento di clic a ciascun elemento
+    boxArray.forEach(singleBox => {
+        singleBox.addEventListener('click', () => {
+            singleBox.classList.add('box-clicked')
+            console.log(singleBox.innerHTML)
         });
-    };
+    });
+
+    // quando clicco su una bomba
+    let bombs = document.querySelectorAll('.bomb');
+    console.log(bombs)
+    bombs.forEach(bomb => {
+        bomb.addEventListener('click', () => {
+        console.log('Hai cliccato su una bomba!');
+        let loseTitle = myElementFunction('h2','loseTitle','text-center')
+        loseTitle.innerHTML = 'Hai Cliccato su una bomba, hai perso!!'
+        main.append(loseTitle);
+        });
+    });
 }
 
 
