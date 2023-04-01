@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(33,37,41);
+    color: white;
+}
+
+.box {
+    background-color: pink;
+    color: blue;
+    aspect-ratio: 1;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.box-easy {
+    width: calc(100% / 10);
+} 
+.box-medium {
+    width: calc(100% / 9);
+} 
+.box-hard {
+    width: calc(100% / 7);
+} 
+
+.box-clicked {
+    background-color: lightskyblue;
+    color: white;
+}
+
+#grid-info {
+    height: 500px;
+    /* background-color: aqua; */
+}
