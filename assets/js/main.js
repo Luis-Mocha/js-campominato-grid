@@ -2,7 +2,7 @@ let main = document.querySelector('main');
 let playDiv = document.querySelector('#playDiv');
 let form = document.querySelector('form');
  
-// creo il change dfiiculty button
+// creo il change difficulty button
 let changeDiffBtn = myElementFunction('button', 'changeDiffBtn', 'text-uppercase my-3 d-block mx-auto');
 changeDiffBtn.innerHTML = 'Change DIfficulty';
 
@@ -96,7 +96,7 @@ function createGrid(numberBoxes, difficulty) {
     for (let i = 0; i < randomNumbersList.length; i++) {
 
         // togliere questo "if" per vedere solo i numeri e non assegnare nessuna x
-        if (randomNumbersList[i] >= randomNumbersList.length - 9) {
+        if (randomNumbersList[i] >= randomNumbersList.length - 15) {
             boxArray[i].classList.add('bomb');
             boxArray[i].innerHTML = `<i class="fa-solid fa-land-mine-on fa-bounce"></i>`;
         } else {
