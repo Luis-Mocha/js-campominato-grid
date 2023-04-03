@@ -1,25 +1,20 @@
 let main = document.querySelector('main');
 let playDiv = document.querySelector('#playDiv');
+let playBtn = document.querySelector('#playBtn')
 let form = document.querySelector('form');
  
 // creo il change difficulty button
-let changeDiffBtn = myElementFunction('button', 'changeDiffBtn', 'text-uppercase my-3 d-block mx-auto');
-changeDiffBtn.innerHTML = 'Change DIfficulty';
+// let changeDiffBtn = myElementFunction('button', 'changeDiffBtn', 'text-uppercase my-3 d-block mx-auto');
+// changeDiffBtn.innerHTML = 'Change DIfficulty';
+
+let grid = myElementFunction('div', 'grid', 'd-flex flex-wrap');
+main.append(grid);
 
 // Clicco Play
 form.addEventListener('submit', function(invioForm) {
     invioForm.preventDefault();
-
-    // nascondo il tasto play e creo il tasto 'change difficulty'
-    playDiv.classList.add('d-none');
-
-    // let changeDiffBtn = myElementFunction('button', 'changeDiffBtn', 'text-uppercase my-3 d-block mx-auto');
-    // changeDiffBtn.innerHTML = 'Change DIfficulty';
-    this.append(changeDiffBtn);
-
-    // creo il div grid
-    let grid = myElementFunction('div', 'grid', 'd-flex flex-wrap');
-    main.append(grid);
+    // cancello il grid precedente
+    grid.innerHTML = '';
 
     let difficultyInput = document.querySelector('#difficultyInput').value;
     console.log(difficultyInput)
@@ -33,15 +28,21 @@ form.addEventListener('submit', function(invioForm) {
     else {
         createGrid(49, difficultyInput);
     }; 
+
+    playBtn.innerHTML = 'try again'
+
+    // quando clicco su una bomba
+    let bombs = document.querySelectorAll('.bomb');
+    console.log(bombs)
+    bombs.forEach(bomb => {
+        bomb.addEventListener('click', () => {
+        console.log('Hai cliccato su una bomba!');
+        let loseTitle = myElementFunction('h2','loseTitle','text-center')
+        loseTitle.innerHTML = 'Hai Cliccato su una bomba, hai perso!!'
+        grid.append(loseTitle);
+        });
+    });
 });
-
-
-// Tasto per refreshare e cambiare difficoltà
-changeDiffBtn.addEventListener('click', function() {
-    alert(`Changing difficulty will cause you to lose all progress.
-    Well anyway it's too late now.`)
-    location.reload()
-})
 
 
 
@@ -119,18 +120,6 @@ function createGrid(numberBoxes, difficulty) {
         singleBox.addEventListener('click', () => {
             singleBox.classList.add('box-clicked')
             console.log(singleBox.innerHTML)
-        });
-    });
-
-    // quando clicco su una bomba
-    let bombs = document.querySelectorAll('.bomb');
-    console.log(bombs)
-    bombs.forEach(bomb => {
-        bomb.addEventListener('click', () => {
-        console.log('Hai cliccato su una bomba!');
-        let loseTitle = myElementFunction('h2','loseTitle','text-center')
-        loseTitle.innerHTML = 'Hai Cliccato su una bomba, hai perso!!'
-        main.append(loseTitle);
         });
     });
 }
