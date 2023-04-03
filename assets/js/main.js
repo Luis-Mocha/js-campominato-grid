@@ -2,10 +2,6 @@ let main = document.querySelector('main');
 let playDiv = document.querySelector('#playDiv');
 let playBtn = document.querySelector('#playBtn')
 let form = document.querySelector('form');
- 
-// creo il change difficulty button
-// let changeDiffBtn = myElementFunction('button', 'changeDiffBtn', 'text-uppercase my-3 d-block mx-auto');
-// changeDiffBtn.innerHTML = 'Change DIfficulty';
 
 let grid = myElementFunction('div', 'grid', 'd-flex flex-wrap');
 main.append(grid);
