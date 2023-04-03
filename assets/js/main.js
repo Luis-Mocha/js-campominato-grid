@@ -36,15 +36,24 @@ form.addEventListener('submit', function(invioForm) {
     // quando clicco su una bomba
     let bombs = document.querySelectorAll('.bomb');
     console.log(bombs)
-    bombs.forEach(bomb => {
-        bomb.addEventListener('click', () => {
-        console.log('Hai cliccato su una bomba!');
-        let loseTitle = myElementFunction('h2','loseTitle','text-center')
-        loseTitle.innerHTML = 'Hai cliccato su una BOMBA, hai perso!!'
-        grid.append(loseTitle);
-        grid.classList.add('unclickable');
-        });
-    });
+    for (let i = 0; i < bombs.length; i++) {
+        bombs[i].addEventListener('click', function() {
+            console.log('Hai cliccato su una bomba!');
+            let loseTitle = myElementFunction('h2','loseTitle','text-center')
+            loseTitle.innerHTML = 'Hai cliccato su una BOMBA, hai perso!!'
+            grid.append(loseTitle);
+            grid.classList.add('unclickable');
+            });
+    };
+    // bombs.forEach(bomb => {
+    //     bomb.addEventListener('click', () => {
+    //     console.log('Hai cliccato su una bomba!');
+    //     let loseTitle = myElementFunction('h2','loseTitle','text-center')
+    //     loseTitle.innerHTML = 'Hai cliccato su una BOMBA, hai perso!!'
+    //     grid.append(loseTitle);
+    //     grid.classList.add('unclickable');
+    //     });
+    // });
 });
 
 
@@ -106,25 +115,11 @@ function createGrid(numberBoxes, difficulty) {
             // boxArray[i].innerHTML = `${randomNumbersList[i]}`;
             boxArray[i].innerHTML = `<i class="fa-solid fa-leaf"></i>`;
         }
-        
+
+        boxArray[i].addEventListener('click', function() {
+            this.classList.add('box-clicked');
+        })
     };
-
-    // Cambio stile e informazione numero al click
-    // for (let i = 0; i <= boxArray.length; i++) {
-    //     boxArray[i].addEventListener('click', function() {
-    //         this.classList.toggle('box-clicked')
-    //         console.log(this.innerHTML)
-    //     })
-    // };
-    
-
-    // aggiungi un event listener per l'evento di clic a ciascun elemento
-    boxArray.forEach(singleBox => {
-        singleBox.addEventListener('click', () => {
-            singleBox.classList.add('box-clicked')
-            console.log(singleBox.innerHTML)
-        });
-    });
 }
 
 
