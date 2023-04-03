@@ -15,6 +15,8 @@ form.addEventListener('submit', function(invioForm) {
     invioForm.preventDefault();
     // cancello il grid precedente
     grid.innerHTML = '';
+    // rendo il grid di nuovo cliccabile dopo una sconfitta precedente
+    grid.classList.remove('unclickable');
 
     let difficultyInput = document.querySelector('#difficultyInput').value;
     console.log(difficultyInput)
@@ -38,8 +40,9 @@ form.addEventListener('submit', function(invioForm) {
         bomb.addEventListener('click', () => {
         console.log('Hai cliccato su una bomba!');
         let loseTitle = myElementFunction('h2','loseTitle','text-center')
-        loseTitle.innerHTML = 'Hai Cliccato su una bomba, hai perso!!'
+        loseTitle.innerHTML = 'Hai cliccato su una BOMBA, hai perso!!'
         grid.append(loseTitle);
+        grid.classList.add('unclickable');
         });
     });
 });
@@ -69,7 +72,6 @@ function myElementFunction(tagHtml, idElemento, classiElemento) {
 
 // -- Funzione per creare le griglie
 // il parametro difficulty corrisponde alla stringa 'easy','medium' o 'hard', serve ad associare la classe e le corrispondenti caratteristiche css.
-
 function createGrid(numberBoxes, difficulty) {
     // Ciclo per creare x caselle e un array con x numeri
     let numbersList = [];
@@ -101,7 +103,8 @@ function createGrid(numberBoxes, difficulty) {
             boxArray[i].classList.add('bomb');
             boxArray[i].innerHTML = `<i class="fa-solid fa-land-mine-on fa-bounce"></i>`;
         } else {
-            boxArray[i].innerHTML = `${randomNumbersList[i]}`;
+            // boxArray[i].innerHTML = `${randomNumbersList[i]}`;
+            boxArray[i].innerHTML = `<i class="fa-solid fa-leaf"></i>`;
         }
         
     };

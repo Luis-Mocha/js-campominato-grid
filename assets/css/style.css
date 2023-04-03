@@ -15,7 +15,7 @@ main {
 
 .box {
     background-color: rgb(192,192,192);
-    color: transparent;
+    color: rgba(0, 0, 0, 0);
     aspect-ratio: 1;
     border: 4px inset black;
     cursor: pointer;
@@ -32,11 +32,14 @@ main {
 } 
 
 .box-clicked {
-    background-color: lightcoral;
-    color: black;
+    background-color: rgb(216, 184, 189);
+    color: red;
+}
+.box-clicked .fa-leaf {
+    color: green;
 }
 
-#grid-info {
-    height: 500px;
-    /* background-color: aqua; */
+
+.unclickable {
+    pointer-events: none;
 }
